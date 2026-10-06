@@ -2,7 +2,6 @@
    1. Переменные проекта
    =============================== */
 :root {
-    /* Основные цвета проекта */
     --color-bg: #ffffff;
     --color-text: #222222;
     --color-muted: #666666;
@@ -14,21 +13,19 @@
     --color-danger: #b00020;
     --color-success: #168a2f;
     --color-success-bg: #eefaf0;
+    --color-badge: #e63946;
     --color-white: #ffffff;
 
-    /* Отступы */
     --space-xs: 4px;
     --space-sm: 8px;
     --space-md: 16px;
     --space-lg: 24px;
     --space-xl: 32px;
 
-    /* Скругления */
     --radius-sm: 6px;
     --radius-md: 8px;
     --radius-lg: 12px;
 
-    /* Размеры */
     --container-width: 1100px;
 }
 
@@ -111,8 +108,31 @@ a:focus-visible {
     cursor: not-allowed;
 }
 
+/* Пункт 13: Фиксированная кнопка «Наверх» (position: fixed) */
+.scroll-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    text-decoration: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+}
+
+.scroll-top:hover {
+    background-color: var(--color-primary-dark);
+}
+
 /* ===============================
-   4. Компоненты страницы
+   4. Компоненты страницы (Flexbox, Grid, БЭМ)
    =============================== */
 .site-header {
     max-width: var(--container-width);
@@ -125,7 +145,7 @@ a:focus-visible {
     color: var(--color-text);
 }
 
-/* Навигация Flexbox */
+/* Пункт 11: Flexbox для навигации */
 .site-nav__list {
     display: flex;
     flex-wrap: wrap;
@@ -135,10 +155,6 @@ a:focus-visible {
     padding: 0;
     margin: var(--space-md) 0 0;
     list-style: none;
-}
-
-.site-nav__list li {
-    margin-bottom: 0;
 }
 
 .site-nav__list a {
@@ -152,10 +168,8 @@ a:focus-visible {
 .site-nav__list a:hover {
     color: var(--color-white);
     background-color: var(--color-primary);
-    text-decoration: none;
 }
 
-/* Хлебные крошки */
 .breadcrumbs {
     max-width: var(--container-width);
     margin: 0 auto var(--space-md);
@@ -189,19 +203,20 @@ a:focus-visible {
     margin-top: 0;
 }
 
-/* Grid-сетка карточек */
+/* Пункт 11: CSS Grid для сетки карточек */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-lg);
 }
 
-/* Flex-раскладка внутри карточки */
+/* Пункты 11, 12, 13: Карточка товара (БЭМ, Flexbox, position: relative) */
 .product-card {
+    position: relative;
+    /* Контейнер для абсолютного бейджа */
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
-    margin-bottom: 0;
     padding: var(--space-md);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
@@ -212,11 +227,37 @@ a:focus-visible {
     border-color: var(--color-primary);
 }
 
-.product-card h3 {
-    margin-top: 0;
+/* Пункт 13: Абсолютный бейдж (position: absolute) */
+.product-card__badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 3px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--color-white);
+    background-color: var(--color-badge);
+    border-radius: var(--radius-sm);
 }
 
-.product-card .button {
+.product-card__title {
+    margin: 0;
+    font-size: 18px;
+}
+
+.product-card__desc {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 14px;
+}
+
+.product-card__price {
+    margin: 0;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.product-card__button {
     margin-top: auto;
     align-self: flex-start;
 }
@@ -229,7 +270,7 @@ a:focus-visible {
     background-color: var(--color-surface);
 }
 
-/* Grid-раскладка страницы каталога */
+/* Пункт 11 и 13: Сетка каталога (Grid) и липкий сайдбар (position: sticky) */
 .catalog-layout {
     max-width: var(--container-width);
     margin: 0 auto var(--space-xl);
@@ -237,10 +278,13 @@ a:focus-visible {
     grid-template-columns: 260px 1fr;
     grid-template-areas: "filters products";
     gap: var(--space-lg);
+    align-items: start;
 }
 
 .catalog-filters {
     grid-area: filters;
+    position: sticky;
+    top: 20px;
     padding: var(--space-md);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
@@ -251,7 +295,6 @@ a:focus-visible {
     grid-area: products;
 }
 
-/* Стили формы фильтров */
 .filters-form {
     display: grid;
     gap: var(--space-md);
