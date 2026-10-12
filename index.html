@@ -11,17 +11,20 @@
 </head>
 
 <body id="top">
-    <header>
-        <div class="site-header">
-            <a class="site-logo" href="index.html">ShopProject</a>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-header__logo" href="index.html">ShopProject</a>
             <nav class="site-nav" aria-label="Основная навигация">
                 <ul class="site-nav__list">
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="catalog.html">Каталог</a></li>
-                    <li><a href="contacts.html">Контакты</a></li>
-                    <li><a href="index.html#advantages">Преимущества</a></li>
-                    <li><a href="index.html#popular">Популярные товары</a></li>
-                    <li><a href="index.html#contacts">Обратная связь</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link site-nav__link--active"
+                            href="index.html">Главная</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="product.html">Товар</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="order.html">Заказ</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="index.html#advantages">Преимущества</a>
+                    </li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="index.html#popular">Популярные</a></li>
                 </ul>
             </nav>
         </div>
@@ -31,11 +34,10 @@
         <section class="hero">
             <h1>Учебный интернет-магазин</h1>
             <p>
-                Это стартовая страница учебного frontend-проекта.
-                В дальнейшем на её основе будет разработан многостраничный сайт
-                интернет-магазина или каталога услуг.
+                Это стартовая страница учебного frontend-проекта. В дальнейшем на её основе будет разработан
+                многостраничный сайт.
             </p>
-            <a class="button" href="#popular">Перейти к товарам</a>
+            <a class="button button--primary" href="#popular">Перейти к товарам</a>
         </section>
 
         <section class="section" id="advantages">
@@ -43,37 +45,38 @@
             <ul class="advantages-list">
                 <li>понятная HTML-структура;</li>
                 <li>семантические блоки страницы;</li>
-                <li>подключение внешнего CSS-файла;</li>
-                <li>подготовка к разработке многостраничного сайта.</li>
+                <li>CSS-архитектура и БЭМ-именование;</li>
+                <li>подготовка к разработке на Bootstrap и React.</li>
             </ul>
         </section>
 
         <section class="section" id="popular">
             <h2>Популярные товары</h2>
             <div class="products-grid">
-                <article class="product-card">
+                <article class="product-card product-card--featured">
                     <span class="product-card__badge">Хит</span>
                     <h3 class="product-card__title">Товар 1</h3>
-                    <p class="product-card__desc">Краткое описание учебного товара.</p>
+                    <p class="product-card__description">Краткое описание учебного товара.</p>
                     <p class="product-card__price">Цена: 1000 руб.</p>
-                    <button class="button product-card__button" type="button" data-product="Товар 1">
+                    <button class="button button--primary product-card__button" type="button" data-product="Товар 1">
                         Заказать
                     </button>
                 </article>
                 <article class="product-card">
                     <span class="product-card__badge">Новинка</span>
                     <h3 class="product-card__title">Товар 2</h3>
-                    <p class="product-card__desc">Краткое описание учебного товара.</p>
+                    <p class="product-card__description">Краткое описание учебного товара.</p>
                     <p class="product-card__price">Цена: 1500 руб.</p>
-                    <button class="button product-card__button" type="button" data-product="Товар 2">
+                    <button class="button button--primary product-card__button" type="button" data-product="Товар 2">
                         Заказать
                     </button>
                 </article>
-                <article class="product-card">
+                <article class="product-card product-card--discount">
+                    <span class="product-card__badge">Скидка</span>
                     <h3 class="product-card__title">Товар 3</h3>
-                    <p class="product-card__desc">Краткое описание учебного товара.</p>
+                    <p class="product-card__description">Краткое описание учебного товара со скидкой.</p>
                     <p class="product-card__price">Цена: 2000 руб.</p>
-                    <button class="button product-card__button" type="button" data-product="Товар 3">
+                    <button class="button button--primary product-card__button" type="button" data-product="Товар 3">
                         Заказать
                     </button>
                 </article>
@@ -83,53 +86,50 @@
         <aside class="aside-info">
             <h2>Информация для студентов</h2>
             <p>
-                На следующих практических занятиях этот проект будет расширяться:
-                появятся формы, модальное окно, дополнительные страницы, Flex/Grid,
-                БЭМ-структура и адаптивная версия сайта.
+                Проект выполнен по методологии БЭМ, с использованием CSS Grid, Flexbox и позиционирования.
             </p>
         </aside>
     </main>
 
-    <footer id="contacts">
+    <footer class="site-footer" id="contacts">
         <p>&copy; 2026 Учебный проект. Все права защищены.</p>
         <p>Дисциплина: Фронтенд и бэкенд разработка</p>
     </footer>
 
-    <!-- Кнопка наверх (position: fixed) -->
     <a class="scroll-top" href="#top" title="Наверх">↑</a>
 
     <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
-        <h2 id="order-dialog-title">Оформление заявки</h2>
+        <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
         <form class="order-form" id="order-form" action="#" method="post" novalidate>
             <input id="selected-product" name="selected-product" type="hidden">
 
-            <div class="form-field">
-                <label for="order-name">Имя</label>
-                <input id="order-name" name="name" type="text" placeholder="Введите ваше имя" minlength="2"
-                    autocomplete="given-name" required>
+            <div class="order-form__field">
+                <label class="order-form__label" for="order-name">Имя</label>
+                <input class="order-form__input" id="order-name" name="name" type="text" placeholder="Введите ваше имя"
+                    minlength="2" autocomplete="given-name" required>
             </div>
 
-            <div class="form-field">
-                <label for="order-email">E-mail</label>
-                <input id="order-email" name="email" type="email" placeholder="example@mail.ru" autocomplete="email"
-                    required>
+            <div class="order-form__field">
+                <label class="order-form__label" for="order-email">E-mail</label>
+                <input class="order-form__input" id="order-email" name="email" type="email"
+                    placeholder="example@mail.ru" autocomplete="email" required>
             </div>
 
-            <div class="form-field">
-                <label for="order-phone">Телефон</label>
-                <input id="order-phone" name="phone" type="tel" inputmode="tel" placeholder="+7 (900) 000-00-00"
-                    pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" required>
-                <small>Формат: +7 (900) 000-00-00</small>
+            <div class="order-form__field">
+                <label class="order-form__label" for="order-phone">Телефон</label>
+                <input class="order-form__input" id="order-phone" name="phone" type="tel" inputmode="tel"
+                    placeholder="+7 (900) 000-00-00" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" required>
+                <small class="order-form__hint">Формат: +7 (900) 000-00-00</small>
             </div>
 
-            <div class="form-field">
-                <label for="order-date">Дата связи</label>
-                <input id="order-date" name="date" type="date">
+            <div class="order-form__field">
+                <label class="order-form__label" for="order-date">Дата связи</label>
+                <input class="order-form__input" id="order-date" name="date" type="date">
             </div>
 
-            <div class="form-field">
-                <label for="order-topic">Тема заявки</label>
-                <select id="order-topic" name="topic" required>
+            <div class="order-form__field">
+                <label class="order-form__label" for="order-topic">Тема заявки</label>
+                <select class="order-form__select" id="order-topic" name="topic" required>
                     <option value="">Выберите тему</option>
                     <option value="product">Заказ товара</option>
                     <option value="consultation">Консультация</option>
@@ -137,22 +137,22 @@
                 </select>
             </div>
 
-            <div class="form-field">
-                <label for="order-comment">Комментарий</label>
-                <textarea id="order-comment" name="comment" rows="4"
+            <div class="order-form__field">
+                <label class="order-form__label" for="order-comment">Комментарий</label>
+                <textarea class="order-form__textarea" id="order-comment" name="comment" rows="4"
                     placeholder="Укажите дополнительную информацию"></textarea>
             </div>
 
-            <div class="form-field form-field--checkbox">
+            <div class="order-form__field">
                 <label>
-                    <input id="order-agreement" name="agreement" type="checkbox" required>
+                    <input class="order-form__input" id="order-agreement" name="agreement" type="checkbox" required>
                     Я согласен на обработку данных
                 </label>
             </div>
 
-            <div class="form-actions">
-                <button type="button" id="close-order-dialog">Закрыть</button>
-                <button type="submit">Отправить заявку</button>
+            <div class="order-form__actions">
+                <button class="button button--secondary" type="button" id="close-order-dialog">Закрыть</button>
+                <button class="button button--primary" type="submit">Отправить заявку</button>
             </div>
         </form>
     </dialog>
