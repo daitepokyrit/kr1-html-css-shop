@@ -14,6 +14,7 @@
     --color-success: #168a2f;
     --color-success-bg: #eefaf0;
     --color-white: #ffffff;
+    --color-badge-new: #0284c7;
 
     --space-xs: 4px;
     --space-sm: 8px;
@@ -62,22 +63,29 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
+    width: 46px;
+    height: 46px;
     background-color: var(--color-primary);
     color: var(--color-white);
     text-decoration: none;
     border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    font-size: 20px;
     font-weight: bold;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .scroll-top:hover {
     background-color: var(--color-primary-dark);
+    transform: translateY(-3px);
+}
+
+.scroll-top:active {
+    transform: translateY(0);
 }
 
 /* ===============================
-   3. Блок кнопки (button)
+   3. Блок кнопки (button) с состояниями
    =============================== */
 .button {
     display: inline-block;
@@ -87,6 +95,7 @@ footer {
     font: inherit;
     text-decoration: none;
     cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
 }
 
 .button--primary {
@@ -96,6 +105,11 @@ footer {
 
 .button--primary:hover {
     background-color: var(--color-primary-dark);
+    box-shadow: 0 2px 6px rgba(0, 87, 184, 0.3);
+}
+
+.button--primary:active {
+    transform: scale(0.97);
 }
 
 .button--secondary {
@@ -109,6 +123,10 @@ footer {
     background-color: var(--color-primary);
 }
 
+.button--secondary:active {
+    transform: scale(0.97);
+}
+
 .button:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 3px;
@@ -118,6 +136,7 @@ footer {
 .button--disabled {
     opacity: 0.6;
     cursor: not-allowed;
+    pointer-events: none;
 }
 
 /* ===============================
@@ -125,6 +144,7 @@ footer {
    =============================== */
 .site-header {
     background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .site-header__inner {
@@ -156,6 +176,7 @@ footer {
     color: var(--color-primary);
     text-decoration: none;
     border-radius: var(--radius-sm);
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .site-nav__link:hover {
@@ -240,14 +261,18 @@ footer {
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     background-color: var(--color-bg);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     border-color: var(--color-primary);
 }
 
 .product-card--featured {
     border-color: var(--color-primary);
+    background-color: #fbfdff;
 }
 
 .product-card--discount {
@@ -262,8 +287,20 @@ footer {
     font-size: 12px;
     font-weight: 700;
     color: var(--color-white);
-    background-color: var(--color-danger);
     border-radius: var(--radius-sm);
+    text-transform: uppercase;
+}
+
+.product-card__badge--hit {
+    background-color: var(--color-primary);
+}
+
+.product-card__badge--new {
+    background-color: var(--color-badge-new);
+}
+
+.product-card__badge--discount {
+    background-color: var(--color-danger);
 }
 
 .product-card__title {
@@ -338,15 +375,18 @@ footer {
     padding: var(--space-md);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-sm);
+    background-color: var(--color-bg);
 }
 
 .filters-form legend {
     font-weight: 700;
+    padding: 0 4px;
 }
 
 .filters-form label {
     display: block;
     margin-bottom: var(--space-sm);
+    cursor: pointer;
 }
 
 .filters-form input[type="number"] {
@@ -374,6 +414,7 @@ footer {
 .product-table caption {
     caption-side: top;
     font-weight: 700;
+    font-size: 18px;
     margin-bottom: var(--space-sm);
     text-align: left;
     color: var(--color-text);
@@ -394,6 +435,10 @@ footer {
 
 .product-table tr:nth-child(even) {
     background-color: var(--color-surface);
+}
+
+.product-table tr:hover {
+    background-color: #f0f7ff;
 }
 
 /* ===============================
@@ -421,6 +466,7 @@ footer {
 .order-form__label {
     display: block;
     margin-bottom: var(--space-xs);
+    font-weight: 600;
 }
 
 .order-form__input,
@@ -435,6 +481,7 @@ footer {
 
 .order-form__input[type="checkbox"] {
     width: auto;
+    cursor: pointer;
 }
 
 .order-form__hint {
