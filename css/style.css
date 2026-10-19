@@ -42,13 +42,14 @@ html {
 
 body {
     margin: 0;
+    padding-top: 100px;
+    /* Отступ под фиксированную шапку меню */
     font-family: Arial, sans-serif;
     line-height: 1.5;
     color: var(--color-text);
     background-color: var(--color-bg);
 }
 
-header,
 main,
 footer {
     padding: var(--space-lg);
@@ -59,7 +60,7 @@ footer {
     position: fixed;
     bottom: 24px;
     right: 24px;
-    z-index: 100;
+    z-index: 999;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -140,15 +141,18 @@ footer {
 }
 
 /* ===============================
-   4. Шапка и навигация (Зафиксирована при скролле)
+   4. Шапка и навигация (ЖЁСТКО ЗАФИКСИРОВАНА ПОВЕРХ ВСЕГО)
    =============================== */
 .site-header {
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 90;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: var(--space-md) var(--space-lg);
     background-color: var(--color-surface);
     border-bottom: 1px solid var(--color-border);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 .site-header__inner {
@@ -170,7 +174,7 @@ footer {
     align-items: center;
     gap: var(--space-md);
     padding: 0;
-    margin: var(--space-md) 0 0;
+    margin: var(--space-sm) 0 0;
     list-style: none;
 }
 
@@ -358,8 +362,8 @@ footer {
 .catalog-filters {
     grid-area: filters;
     position: sticky;
-    top: 85px;
-    /* Зазор с учётом прилипшей шапки */
+    top: 110px;
+    /* Отступ ниже прибитой шапки */
     padding: var(--space-md);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
