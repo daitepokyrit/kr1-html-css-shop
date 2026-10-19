@@ -140,11 +140,15 @@ footer {
 }
 
 /* ===============================
-   4. Шапка и навигация (site-header, site-nav)
+   4. Шапка и навигация (Зафиксирована при скролле)
    =============================== */
 .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 90;
     background-color: var(--color-surface);
     border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .site-header__inner {
@@ -339,7 +343,7 @@ footer {
 }
 
 /* ===============================
-   8. Каталог и фильтры (catalog-layout)
+   8. Каталог и sticky-фильтры
    =============================== */
 .catalog-layout {
     max-width: var(--container-width);
@@ -354,7 +358,8 @@ footer {
 .catalog-filters {
     grid-area: filters;
     position: sticky;
-    top: 20px;
+    top: 85px;
+    /* Зазор с учётом прилипшей шапки */
     padding: var(--space-md);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
